@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search</title>
+    <title>Hipster Horseshoes</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f0e1; /* Cozy cream background */
+        }
+
+        .search-container {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden; /* Ensures the button stays within the border */
+            overflow: hidden;
+            margin-bottom: 20px; /* Space below search */
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            flex-grow: 1; /* Allows input to take up available space */
+            outline: none; /* Removes the focus outline */
+
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4285f4; /* Google blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0; /* Rounded corners on the right side of the button */
+        }
+
+        button:hover {
+            background-color: #357ae8; /* Darker blue on hover */
+        }
+
+        .horse-images {
+            display: flex; /* Arrange images horizontally */
+            justify-content: center;
+            gap: 20px; /* Space between images */
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px; /* Slightly rounded image corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Procurar na Google">
+        <input type="text" id="search-input" placeholder="Search Google">
+        <button id="search-button">Search</button>
+    </div>
+
+
+    <div class="horse-images">
+        <img src="hipster_horse_1.jpg" alt="Stylish Horse 1">
+        <img src="hipster_horse_2.jpg" alt="Stylish Horse 2">
+    </div>
+
+    <p class="tagline">Horseshoes: Because even hipsters need a little iron in their step.</p>
+
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+
+        searchButton.addEventListener('click', () => {
+            const searchTerm = searchInput.value;
+            if (searchTerm.trim() !== '') { // Check if search term is not empty or just whitespace
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+            }
+        });
+
+        // Allow searching with Enter key
+        searchInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                searchButton.click(); // Trigger the button click
+            }
+        });
+    </script>
+
+</body>
+</html>
